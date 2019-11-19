@@ -8,6 +8,7 @@ import json
 import os
 import rofi
 import subprocess
+import time
 logging.basicConfig(level=logging.INFO)
 
 
@@ -84,6 +85,7 @@ class RFT(object):
     def _register_cur_sessions(self) -> None:
         """Register the current tmux sessions _sessions, and
         store current active session in _cur_tmux_s"""
+        start_time = time.time()
         try:
             self._sessions = self._get_sessions_filtered()
             self.logger.debug('_sessions: {}'.format(self._sessions))
@@ -92,6 +94,7 @@ class RFT(object):
             self.load_tmuxinator()
         self._cur_tmux_s = self._get_cur_session()
         self.logger.debug('_cur_tmux_s: {}'.format(self._cur_tmux_s.name if self._cur_tmux_s else self._cur_tmux_s))
+        print('register_cur_sessions took {}'.format(time.time() - start_time))
 
     def _get_cur_session(self) -> libtmux.session.Session:
         """Return reference to our current tmux session."""
@@ -238,6 +241,7 @@ class RFT(object):
         :rofi_msg: rofi displayed message
 
         """
+        start_time = time.time()
         windows = None
         if session_name:
             session = self._get_session_by_name(session_name = session_name)
@@ -271,6 +275,7 @@ class RFT(object):
             except ValueError as e:
                 sel = 0
 
+            print('_rofi_tmux_window took {}'.format(time.time() - start_time))
             res, key = self._rofi.select(rofi_msg, windows_str, select=sel)
             if key == 0:
                 win = windows[res]
