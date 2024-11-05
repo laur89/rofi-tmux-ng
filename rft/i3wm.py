@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from window_manager import WindowManager
+from .window_manager import WindowManager
 import i3ipc
 import logging
 from re import escape

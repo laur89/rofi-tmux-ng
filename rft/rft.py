@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from tmux import tmux
+from .tmux import tmux
 import logging
 import json
 import os
@@ -28,7 +28,7 @@ class RFT(object):
         self._config = self._load_config(os.path.join(homedir, '.rft'))
         self._tmux = tmux(self._config, logger_lvl = self.logger.getEffectiveLevel())
         if self._config.get('wm') == 'i3':
-            from i3wm import i3WM
+            from .i3wm import i3WM
             self._wm = i3WM(self._config, logger_lvl = self.logger.getEffectiveLevel())
         else:
             self._wm = None
