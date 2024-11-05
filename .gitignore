@@ -1,0 +1,7 @@
+*.pyc
+*.swp
+build/
+dist/
+rofi_tmux.egg-info/
+.DS_Store
+.idea/
