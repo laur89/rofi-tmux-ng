@@ -1,25 +1,23 @@
-[![Documentation Status](https://readthedocs.org/projects/rofi-tmux/badge/?version=latest)](http://rofi-tmux.readthedocs.io/en/latest/?badge=latest) [![PyPI](https://img.shields.io/pypi/v/rofi-tmux.svg)](https://pypi.python.org/pypi/rofi-tmux)
+[![Documentation Status](https://readthedocs.org/projects/rofi-tmux/badge/?version=latest)](http://rofi-tmux.readthedocs.io/en/latest/?badge=latest) [![PyPI](https://img.shields.io/pypi/v/rofi-tmux-ng.svg)](https://pypi.python.org/pypi/rofi-tmux-ng)
 
-## rft (rofi-tmux)
+## rft (rofi-tmux-ng)
 
 ![rft](docs/images/rft.png)
 
 Quickly switch tmux sessions & windows via rofi. Integrates with [i3wm](https://i3wm.org/)
 for a smoother switching workflow, if you have multiple workspaces.
 
-### Use Case
-
-I developed rft (rofi-tmux) to optimize my context-switching workflow. As a user who
-relies completely on tmux for anything shell related, I wanted to have a fuzzy finder
-switcher to locate any tmux session or window with seamless integration with i3wm.
-I guess I've got spoiled by fuzzy finders. Watch the screencast below and you'll see
-what I mean :)
+Note this is a fork of [viniarck/rofi-tmux](https://github.com/viniarck/rofi-tmux/).
+Upstream is still active and maintained, but the project you're currently
+viewing has somewhat diverged in its architecture -- mainly stopped using
+`libtmux` library and instead started employing client-server paradigm to
+keep tmux state updated in memory via control client process.
 
 ### Features
 
 - Switch or kill any tmux session
 - Switch or kill any tmux window, either globally or within the current session
-- Switch to any tmuxinator project
+- ~~Switch to any tmuxinator project.~~ not implemented; see upstream if needed
 - Cache last tmux session and window for fast switching back and forth,
 decreases the number of required keystrokes
 - Integration with i3wm for switching to the right workspace seamlessly
@@ -36,6 +34,9 @@ pipx install rofi-tmux-ng
 [![rft-demo](https://img.youtube.com/vi/o6tBNFJW28c/0.jpg)](https://www.youtube.com/watch?v=o6tBNFJW28c)
 
 ### Usage
+
+TODO: needs work. Following link leads to upstream docs that are not 100%
+applicable to this fork.
 
 Check [ReadTheDocs](http://rofi-tmux.readthedocs.io/) for detailed information,
 usage and suggested key bindings.

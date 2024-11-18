@@ -13,7 +13,6 @@ from tendo import singleton
 
 
 class Daemon(object):
-    """Abstraction to interface with rofi, tmux, tmuxinator."""
 
     def __init__(self, debug=False):
         """Initialize ."""
