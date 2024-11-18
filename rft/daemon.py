@@ -22,7 +22,7 @@ class Daemon(object):
         log_lvl = logging.DEBUG if debug else logging.INFO
         logging.basicConfig(stream=sys.stdout, level=log_lvl)
 
-        self._config = load_config()
+        self._config = load_config(True)
 
         self.tmux = Tmux(self._config)
         if self._config.get('wm') == 'i3':

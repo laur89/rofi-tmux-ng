@@ -13,7 +13,7 @@ EMPTY_STATE = {
         'tmux': {}
         }
 
-def load_config() -> dict:
+def load_config(load_state=False) -> dict:
     """Load json config file ~/.rft.
 
     Currently supported window managers: 'i3'
@@ -33,7 +33,8 @@ def load_config() -> dict:
     }
     conf.update(_read_dict_from_file(os.path.join(HOMEDIR, '.rft')))
 
-    conf['state'] = _load_state(conf['state_f_path'])
+    if load_state:
+        conf['state'] = _load_state(conf['state_f_path'])
 
     # self.logger.debug('effective config: {}'.format(conf))
     return conf
