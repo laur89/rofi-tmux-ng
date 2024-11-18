@@ -53,8 +53,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'rft (rofi-tmux)'
-copyright = '2018, Vinicius Arcanjo'
-author = 'Vinicius Arcanjo'
+copyright = '2024, Laurito'
+author = 'Laurito'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -146,7 +146,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'rftrofi-tmux.tex', 'rft (rofi-tmux) Documentation',
-     'Vinicius Arcanjo', 'manual'),
+     'Laurito', 'manual'),
 ]
 
 

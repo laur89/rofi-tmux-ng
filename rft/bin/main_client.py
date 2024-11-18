@@ -1,48 +1,49 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+# TODO: consider pyro5 for rpc
+
 import click
-import rft.rft as rft
+import rft.client as rft
 import rft.version as version
 
 
-@click.group()
+@click.group
 @click.pass_context
 @click.option(
     '--debug',
-    default=False,
     is_flag=True,
     help='Enables logging at debug level.')
 def main(ctx, debug):
-    """RFT (rofi-tmux) switcher."""
-    ctx.obj = rft.RFT(debug=debug)
+    """Client (rofi-tmux) switcher."""
+    ctx.obj = rft.Client(debug=debug)
 
 
-@main.command()
+@main.command
 @click.pass_obj
 def ss(ctx):
     """Switch tmux session.
 
     :param ctx: context
     """
-    ctx.switch_session()
+    ctx.send_cmd('ss')
 
 
-@main.command()
+@main.command
 @click.pass_obj
 def ks(ctx):
     """Kill tmux session.
 
     :param ctx: context
     """
-    ctx.kill_session()
+    ctx.send_cmd('ks')
 
 
-@main.command()
+@main.command
 @click.option(
     '--session_name',
-    default=None,
-    help='limit the scope to this this sesison')
+    default='',
+    help='limit the scope to this this session')
 @click.option(
     '--global_scope',
     default=True,
@@ -56,14 +57,14 @@ def sw(ctx, session_name, global_scope):
     :param session_name: tmux session name
     :param global_scope: True to consider all windows
     """
-    ctx.switch_window(session_name=session_name, global_scope=global_scope)
+    ctx.send_cmd(f'sw {int(global_scope)} {session_name}')
 
 
-@main.command()
+@main.command
 @click.option(
     '--session_name',
-    default=None,
-    help='limit the scope to this this sesison')
+    default='',
+    help='limit the scope to this this session')
 @click.option(
     '--global_scope',
     default=True,
@@ -77,10 +78,10 @@ def kw(ctx, session_name, global_scope):
     :param session_name: tmux session name
     :param global_scope: True to consider all windows
     """
-    ctx.kill_window(session_name=session_name, global_scope=global_scope)
+    ctx.send_cmd(f'kw {int(global_scope)} {session_name}')
 
 
-@main.command()
+@main.command
 @click.pass_obj
 def lp(ctx):
     """Load tmuxinator project.
@@ -90,7 +91,7 @@ def lp(ctx):
     ctx.load_tmuxinator()
 
 
-@main.command()
+@main.command
 def v():
     """Print version."""
     print(version.__version__)
