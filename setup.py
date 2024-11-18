@@ -8,8 +8,8 @@ setup(
     description=desc,
     author='Laurito',
     author_email='viniarck@gmail.com',
-    keywords='rofi tmux tmuxinator i3 manage switch',
-    url='http://github.com/viniarck/rofi-tmux',
+    keywords='rofi tmux i3 manage switch',
+    url='http://github.com/laur89/rofi-tmux-ng',
     packages=['rft', 'rft/bin'],
     license='MIT',
     install_requires=['python-rofi==1.0.1', 'i3ipc>=2.0.1', 'click', 'tendo'],  # cloup

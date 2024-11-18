@@ -381,10 +381,12 @@ class Tmux(object):
         return next((w for w in self._windows if w['id'] == window_id), None)
 
     async def switch_to_window(self, window) -> None:
-        await self.send_tmux_command(SWITCH_TO_CLIENT_CMD.format(self.client['name'], f'{window["session_id"]}:{window["id"]}'))
+        if self.client and window:
+            await self.send_tmux_command(SWITCH_TO_CLIENT_CMD.format(self.client['name'], f'{window["session_id"]}:{window["id"]}'))
 
     async def switch_to_session(self, session) -> None:
-        await self.send_tmux_command(SWITCH_TO_CLIENT_CMD.format(self.client['name'], session['id']))
+        if self.client and session:
+            await self.send_tmux_command(SWITCH_TO_CLIENT_CMD.format(self.client['name'], session['id']))
 
     # TODO: deprecated
     def select_window(self, win_name) -> None:
