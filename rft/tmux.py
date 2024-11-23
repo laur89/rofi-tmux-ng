@@ -158,6 +158,7 @@ class Tmux(object):
         - moving window order, e.g. when firing [swap-window -d -t +1] - note we lose the ordering in our state!
                                                                          this is why we re-regsiter windows
           - note without the -d flag _no_ events are fired
+          - see https://github.com/orgs/tmux/discussions/4230 on the subject
 
         events like:
         %session-window-changed $0 @8
@@ -394,7 +395,8 @@ class Tmux(object):
         call(cmd)
 
     async def kill_window(self, window) -> None:
-        await self.send_tmux_command(KILL_WINDOW_CMD.format(f'{window["session_id"]}:{window["id"]}'))
+        if window:
+            await self.send_tmux_command(KILL_WINDOW_CMD.format(f'{window["session_id"]}:{window["id"]}'))
 
     def attach_session(self, session_name) -> None:
         cmd = ['tmux', 'attach-session', '-t', session_name]

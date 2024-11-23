@@ -1,29 +1,39 @@
 Usage
 =====
 
-Two things you have to keep in mind when using rft:
+Few things to keep in mind when using rft:
 
-1. rft doesn't launch a terminal automatically for you, so, if you don't have a tmux session attached yet you're supposed to run rft in the terminal (``rft ss`` or ``rft lp``).
-2. rft caches the last tmux session/window you have switched from, so it automatically pre-selects it in the rofi prompt, except if you are in a different workspace, where rft assumes that you probably want to switch over to the same session/window you were before/that is currently opened.
+#. rft doesn't launch a terminal/client automatically for you, so you need to start
+   your main client manually.
+#. rft caches the last tmux session/window you have switched from either using rft
+   or in tmux client itself, so it automatically pre-selects it in the rofi prompt,
+   assuming the client window is visible; if it is not, rft assumes you probably want
+   to switch over to the same session/window that is currently opened/active.
 
 
-I recommend that you have shortcuts with control modifiers for rft, so if you always have a tmux session running, it's going to be really fast to find this session and switch to it. For example, I use these key bindings on i3wm for launching rft:
+I recommend that you have shortcuts with control modifiers for rft, so if you always
+have a tmux session running, it's going to be really fast to find this session and
+switch to it. For example, I use these key bindings on i3 for launching rft:
 
 .. code:: shell
 
-    bindsym $mod+y exec "$HOME/.local/bin/rft lp"
-    bindsym $mod+e exec "$HOME/.local/bin/rft ss"
-    bindsym $mod+w exec "$HOME/.local/bin/rft sw"
-    bindsym $mod+Shift+d exec "$HOME/.local/bin/rft ks"
-    bindsym $mod+Shift+w exec "$HOME/.local/bin/rft kw"
-    bindsym $mod4+g exec "$HOME/.local/bin/rft sw --global_scope false"
+    set $mod Mod4
+    set $ex  exec --no-startup-id
+
+    bindsym $mod+w       $ex  killall -s SIGUSR1 rft-daemon
+    bindsym $mod+e       $ex  killall -s SIGUSR2 rft-daemon
+    bindsym $mod+g       $ex  rft sw --global_scope false
+    bindsym $mod+Shift+w $ex  rft kw
 
 .. note::
 
-    If you have pip3 installed with the --user flag the executable will be in ~/$HOME/.local/bin/rft.
+    If you haven't added ``$HOME/.local/bin`` to your ``$PATH``, then you'll have to
+    define rft command as ``$HOME/.local/bin/rft``, as that's where pipx-installed
+    executables are placed by default.
 
-The first three are the ones that I use the most. They're for loading a tmuxinator project (`lp`), switching to a session (`ss`) and switching to a window globally (`sw`).
-So, I set some keys that are near my home row. If you want to check all rft actions available:
+The first two are the ones that I use the most. They're for switching to a session
+(`ss`) and switching to a window globally (`sw`).
+To check all rft actions available:
 
 .. code:: shell
 
@@ -39,7 +49,6 @@ So, I set some keys that are near my home row. If you want to check all rft acti
   Commands:
     ks  Kill tmux session.
     kw  Kill tmux window.
-    lp  Load tmuxinator project.
     ss  Switch tmux session.
     sw  Switch tmux window.
     v   Print version.

@@ -45,14 +45,14 @@ def _load_state(file_loc) -> dict:
 
     t = s.get('timestamp', 0)
     v = s.get('ver', -1)
-    if (_now() - t <= TIME_DIFF_DELTA_THRESHOLD_S and v == STATE_VER):
+    if (_unix_time_now() - t <= TIME_DIFF_DELTA_THRESHOLD_S and v == STATE_VER):
         return s
     return EMPTY_STATE.copy()
 
 
 def write_state(conf, tmux_state) -> None:
     data = {
-            'timestamp': _now(),
+            'timestamp': _unix_time_now(),
             'ver': STATE_VER,
             'tmux': tmux_state
             }
@@ -83,7 +83,7 @@ def _read_dict_from_file(file_loc) -> dict:
         return {}
 
 
-def _now() -> int:
+def _unix_time_now() -> int:
     return int(datetime.now().timestamp())
 
 

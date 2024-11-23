@@ -4,7 +4,7 @@
 # TODO: consider pyro5 for rpc
 
 import click
-import rft.client as rft
+import rft.client as client
 import rft.version as version
 
 
@@ -16,7 +16,7 @@ import rft.version as version
     help='Enables logging at debug level.')
 def main(ctx, debug):
     """Client (rofi-tmux) switcher."""
-    ctx.obj = rft.Client(debug=debug)
+    ctx.obj = client.Client(debug=debug)
 
 
 @main.command
@@ -81,14 +81,14 @@ def kw(ctx, session_name, global_scope):
     ctx.send_cmd(f'kw {int(global_scope)} {session_name}')
 
 
-@main.command
-@click.pass_obj
-def lp(ctx):
-    """Load tmuxinator project.
+# @main.command
+# @click.pass_obj
+# def lp(ctx):
+    # """Load tmuxinator project.
 
-    :param ctx: context
-    """
-    ctx.load_tmuxinator()
+    # :param ctx: context
+    # """
+    # ctx.load_tmuxinator()
 
 
 @main.command

@@ -56,11 +56,11 @@ class Daemon(object):
         match(req[0]):
             case 'sw':
                 req = req[1].split(' ', 1)
-                await self.rft.switch_window(global_scope=bool(req[0]),
+                await self.rft.switch_window(global_scope=bool(int(req[0])),
                                              session_name=req[1] if req[1] else None)
             case 'kw':
                 req = req[1].split(' ', 1)
-                await self.rft.kill_window(global_scope=bool(req[0]),
+                await self.rft.kill_window(global_scope=bool(int(req[0])),
                                            session_name=req[1] if req[1] else None)
             case 'ss':
                 await self.rft.switch_session()
@@ -91,7 +91,7 @@ class Daemon(object):
                     asyncio.get_running_loop().add_signal_handler(getattr(signal, signame),
                                                                   lambda: tg.create_task(self.rft.switch_session()))
 
-                await asyncio.sleep(0.1)  # so tmux._tmux_proc is init'd & started first
+                await asyncio.sleep(0.1)  # so tmux._tmux_proc is init'd & started prior to tmux init()
                 await self.tmux.init()
         except* TerminateTaskGroup as exc_group:
             ttg = exc_group.exceptions[0]

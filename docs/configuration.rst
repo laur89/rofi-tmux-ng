@@ -12,7 +12,8 @@ All configuration is optional, and is to be written in a json file at ``~/.rft``
   
   .. note::
   
-      Feel free to send pull requests for other window managers that support multiple workspaces.
+      Feel free to send pull requests for other window managers
+      that support multiple workspaces.
 
 - ``tmux_title_rgx``
 
@@ -25,8 +26,8 @@ All configuration is optional, and is to be written in a json file at ``~/.rft``
   + ``{session}`` will be expanded into tmux session name
   + ``{window}`` will be expanded into tmux window name
 
-  Eg if you have ``set -g set-titles-string "#S / #W / #T"`` in your .tmux.conf, you
-  might want to set to this value:
+  Eg if you have ``set -g set-titles-string "#S / #W / #T"`` in your .tmux.conf,
+  you might want to set to this value:
 
   .. code:: json
   
@@ -48,9 +49,24 @@ All configuration is optional, and is to be written in a json file at ``~/.rft``
       }
 
 
+- ``sw_signals`` & ``ss_signals``
+
+  Optional list of signals triggering window switch & session switch respectively
+  Eg (this is also the default):
+
+  .. code:: json
+  
+      {
+          "sw_signals": ["SIGUSR1"],
+          "ss_signals": ["SIGUSR2"]
+      }
+
+
 .. note::
 
-    If you want to change the algorithm rofi uses, you should change it on rofi rc configuration file itself, "~/.config/rofi/config", for example to uses the fuzzy macher you should set rofi.matching attribute as "fuzzy".
+    If you want to change the algorithm rofi uses, you should change it on rofi rc
+    configuration file itself, "~/.config/rofi/config.rasi", for example to uses the
+    fuzzy macher you should set rofi.matching attribute as "fuzzy".
 
 config example using i3wm
 -------------------------
