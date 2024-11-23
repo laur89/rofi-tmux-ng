@@ -19,8 +19,8 @@ Features
 
 - Switch or kill any tmux session.
 - Switch or kill any tmux window, either globally or within the current session.
-- Switch to any tmuxinator project.
+- :strike:`Switch to any tmuxinator project.`
 - Cache last tmux session and window for fast switching back and forth,
   decreases the number of keystrokes needed.
-- Integration with i3wm for switching to the right workspace seamlessly.
+- Integration with i3wm for focusing the right workspace & window seamlessly.
 - Extensible for other window managers.
