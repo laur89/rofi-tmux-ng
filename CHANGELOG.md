@@ -1,4 +1,4 @@
-## 0.0.2 (unreleased)
+## 0.0.2 (2024-11-26)
 
 
 - fix daemon.handle_client()
