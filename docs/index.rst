@@ -1,5 +1,5 @@
-rft (rofi-tmux)
-===============
+rft (rofi-tmux-ng)
+==================
 
 .. toctree::
 
@@ -7,4 +7,3 @@ rft (rofi-tmux)
     installation.rst
     configuration.rst
     usage.rst
-    keybindings.rst

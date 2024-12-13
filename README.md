@@ -1,4 +1,4 @@
-[![Documentation Status](https://readthedocs.org/projects/rofi-tmux/badge/?version=latest)](http://rofi-tmux.readthedocs.io/en/latest/?badge=latest) [![PyPI](https://img.shields.io/pypi/v/rofi-tmux-ng.svg)](https://pypi.python.org/pypi/rofi-tmux-ng)
+[![Documentation Status](https://readthedocs.org/projects/rofi-tmux-ng/badge/?version=latest)](http://rofi-tmux-ng.readthedocs.io/en/latest/?badge=latest) [![PyPI](https://img.shields.io/pypi/v/rofi-tmux-ng.svg)](https://pypi.python.org/pypi/rofi-tmux-ng)
 
 ## rft (rofi-tmux-ng)
 
@@ -31,14 +31,13 @@ pipx install rofi-tmux-ng
 
 ### Screencast
 
+TODO: needs replacing, currently showing cast of the upstream
+
 [![rft-demo](https://img.youtube.com/vi/o6tBNFJW28c/0.jpg)](https://www.youtube.com/watch?v=o6tBNFJW28c)
 
 ### Usage
 
-TODO: needs work. Following link leads to upstream docs that are not 100%
-applicable to this fork.
-
-Check [ReadTheDocs](http://rofi-tmux.readthedocs.io/) for detailed information,
+Check [ReadTheDocs](http://rofi-tmux-ng.readthedocs.io/) for detailed information,
 usage and suggested key bindings.
 
 ### Contributing
