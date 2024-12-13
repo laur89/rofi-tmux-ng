@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-# rft (rofi-tmux) documentation build configuration file, created by
+# rft (rofi-tmux-ng) documentation build configuration file, created by
 # sphinx-quickstart on Tue Jan 16 17:59:33 2018.
 #
 # This file is execfile()d with the current directory set to its
@@ -52,7 +52,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'rft (rofi-tmux)'
+project = 'rft (rofi-tmux-ng)'
 copyright = '2024, Laurito'
 author = 'Laurito'
 
@@ -145,7 +145,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'rftrofi-tmux.tex', 'rft (rofi-tmux) Documentation',
+    (master_doc, 'rftrofi-tmux.tex', 'rft (rofi-tmux-ng) Documentation',
      'Laurito', 'manual'),
 ]
 
@@ -155,7 +155,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'rftrofi-tmux', 'rft (rofi-tmux) Documentation',
+    (master_doc, 'rftrofi-tmux', 'rft (rofi-tmux-ng) Documentation',
      [author], 1)
 ]
 
@@ -166,7 +166,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'rftrofi-tmux', 'rft (rofi-tmux) Documentation',
+    (master_doc, 'rftrofi-tmux', 'rft (rofi-tmux-ng) Documentation',
      author, 'rftrofi-tmux', 'One line description of project.',
      'Miscellaneous'),
 ]

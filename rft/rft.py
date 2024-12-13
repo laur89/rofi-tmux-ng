@@ -13,7 +13,7 @@ class RFT(object):
     def __init__(self, conf, tmux, wm):
         """Initialize ."""
         self._rofi = rofi.Rofi()
-        self._cur_tmux_s = None
+        self._cur_tmux_s = None  # TODO: remove member
         self.logger = logging.getLogger(__name__)
 
         self._config = conf
