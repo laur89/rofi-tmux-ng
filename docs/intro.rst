@@ -3,7 +3,7 @@ Introduction
 
 .. image:: images/rft.png
 
-Quickly switch tmux sessions and windows via `rofi <https://github.com/DaveDavenport/rofi>`_.
+Quickly switch tmux sessions and windows via `rofi <https://github.com/davatorium/rofi>`_.
 Integrates with `i3wm <http://www.i3wm.org>`_ for a smoother switching workflow
 if you have multiple workspaces.
 

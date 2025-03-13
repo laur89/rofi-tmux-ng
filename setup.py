@@ -1,11 +1,10 @@
 from setuptools import setup
 from rft.version import __version__
-desc = 'Manage tmux sessions & windows via Rofi'
 
 setup(
     name='rofi-tmux-ng',
     version=__version__,
-    description=desc,
+    description='Manage tmux sessions & windows via Rofi',
     author='Laurito',
     author_email='viniarck@gmail.com',
     keywords='rofi tmux i3 manage switch',
