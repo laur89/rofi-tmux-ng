@@ -93,6 +93,7 @@ class Daemon(object):
 
                 await asyncio.sleep(0.1)  # so tmux._tmux_proc is init'd & started prior to tmux init()
                 await self.tmux.init()
+        # see also https://stackoverflow.com/a/79336487/1803648 for global exception handling
         except* TerminateTaskGroup as exc_group:
             ttg = exc_group.exceptions[0]
             self.logger.debug(f'TerminateTaskGroup caught, exiting with code {ttg.exit_code}, store_state={ttg.store_state}...')
