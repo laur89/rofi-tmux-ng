@@ -323,7 +323,7 @@ class Tmux(object):
             elif current_cmd == '%begin':
                 in_block = True
             elif current_cmd == '%exit':
-                self.logger.warn('%exit received, terminating...')
+                self.logger.warning('%exit received, terminating...')
                 raise TerminateTaskGroup(3)
 
             previous_cmd = current_cmd
