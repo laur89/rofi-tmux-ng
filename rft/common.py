@@ -6,15 +6,21 @@ STATE_VER = 1  # bump this whenever persisted state data structure changes
 TIME_DIFF_DELTA_THRESHOLD_S = 10
 
 
-HOMEDIR = os.environ.get('HOME')
+CONF_DIR: str = os.environ.get("XDG_CONFIG_HOME", f"{os.environ['HOME']}/.config")
+
+
+RUNTIME_PATH: str = os.environ.get("XDG_RUNTIME_DIR", f"/run/user/{os.getuid()}")
+CACHE_PATH: str = os.environ.get("XDG_CACHE_HOME", os.environ["HOME"] + "/.cache")
+
 EMPTY_STATE = {
         'timestamp': 0,
         'ver': -1,
         'tmux': {}
         }
 
+
 def load_config(load_state=False) -> dict:
-    """Load json config file ~/.rft.
+    """Load json config file XDG_CONFIG_HOME/rofi-tmux/config.json
 
     Currently supported window managers: 'i3'
 
@@ -25,13 +31,13 @@ def load_config(load_state=False) -> dict:
             'ignored_sessions': [],
             'sw_signals': ['SIGUSR1'],
             'ss_signals': ['SIGUSR2'],
-            'socket_path': '/tmp/.rofi-tmux-ipc.sock',
-            'state_f_path': '/tmp/.rofi-tmux.state',
+            'socket_path': f"{RUNTIME_PATH}/rofi-tmux-ipc.sock",
+            'state_f_path': f'{CACHE_PATH}/rofi-tmux.state',
             'state': None,  # will be read from state_f_path
             'tmux_cc_cmd': ["tmux", "-C", "attach", "-f",
                             "no-output,no-detach-on-destroy,ignore-size,active-pane"]  # note single -C flag as per https://github.com/tmux/tmux/issues/3085
     }
-    conf.update(_read_dict_from_file(os.path.join(HOMEDIR, '.rft')))
+    conf.update(_read_dict_from_file(os.path.join(CONF_DIR, 'rofi-tmux', 'config.json')))
 
     if load_state:
         conf['state'] = _load_state(conf['state_f_path'])

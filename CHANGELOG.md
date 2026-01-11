@@ -1,7 +1,7 @@
 ## 0.0.3 (unreleased)
 
 
-- Nothing changed yet.
+- change config file location to `$XDG_CONFIG_HOME/rofi-tmux/config.json`
 
 
 ## 0.0.2 (2024-11-26)

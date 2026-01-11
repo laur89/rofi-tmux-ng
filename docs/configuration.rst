@@ -1,7 +1,7 @@
 Configuration
 =============
 
-All configuration is optional, and is to be written in a json file at ``~/.rft``.
+All configuration is optional, and is to be written in a json file at ``$XDG_CONFIG_HOME/rofi-tmux/config.json``.
 
 - ``wm``
 
